@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!--
+  white king    ♔  U+2654  &#9812;  &#x2654;
+  white queen   ♕  U+2655  &#9813;  &#x2655;
+  white rook    ♖  U+2656  &#9814;  &#x2656;
+  white bishop  ♗  U+2657  &#9815;  &#x2657;
+  white knight  ♘  U+2658  &#9816;  &#x2658;
+  white pawn    ♙  U+2659  &#9817;  &#x2659;
+
+  black king    ♚  U+265A  &#9818;  &#x265A;
+  black queen   ♛  U+265B  &#9819;  &#x265B;
+  black rook    ♜  U+265C  &#9820;  &#x265C;
+  black bishop  ♝  U+265D  &#9821;  &#x265D;
+  black knight  ♞  U+265E  &#9822;  &#x265E;
+  black pawn    ♟︎  U+265F  &#9823;  &#x265F;
+  -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess</title>
+  <style>
+    :root {
+      --main-bg-color: #edebe9;
+      --color-white: #f0d9b5;
+      --color-black: #b58863;
+      --color-legend: #787878;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--main-bg-color);
+    }
+
+    .board {
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+
+    .tile {
+      width: 100px;
+      height: 100px;
+      font-size: 4.7rem;
+      text-align: center;
+      padding: 0px;
+    }
+
+    .tile-row:nth-child(odd) .tile:nth-child(even),
+    .tile-row:nth-child(even) .tile:nth-child(odd) {
+      background: var(--color-black);
+    }
+
+    .tile-row:nth-child(odd) .tile:nth-child(odd),
+    .tile-row:nth-child(even) .tile:nth-child(even) {
+      background: var(--color-white);
+    }
+
+    .legend {
+      text-align: center;
+      color: var(--color-legend);
+      padding: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <table class="board">
+    <tr class="legend-row">
+      <td class=legend></td>
+      <td class=legend>a</td>
+      <td class=legend>b</td>
+      <td class=legend>c</td>
+      <td class=legend>d</td>
+      <td class=legend>e</td>
+      <td class=legend>f</td>
+      <td class=legend>g</td>
+      <td class=legend>h</td>
+      <td class=legend></td>
+    </tr>
+    <tr class="tile-row">
+      <td class=legend>8</td>
+      <td class="tile">&#9820;</td>
+      <td class="tile">&#9822;</td>
+      <td class="tile">&#9821;</td>
+      <td class="tile">&#9819;</td>
+      <td class="tile">&#9818;</td>
+      <td class="tile">&#9821;</td>
+      <td class="tile">&#9822;</td>
+      <td class="tile">&#9820;</td>
+      <td class=legend>8</td>
+    </tr>
+    <tr class="tile-row">
+      <td class=legend>7</td>
+      <td class="tile">&#9823;</td>
+      <td class="tile">&#9823;</td>
+      <td class="tile">&#9823;</td>
+      <td class="tile">&#9823;</td>
+      <td class="tile">&#9823;</td>
+      <td class="tile">&#9823;</td>
+      <td class="tile">&#9823;</td>
+      <td class="tile">&#9823;</td>
+      <td class=legend>7</td>
+    </tr>
+    <tr class="tile-row">
+      <td class=legend>6</td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class=legend>6</td>
+    </tr>
+    <tr class="tile-row">
+      <td class=legend>5</td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class=legend>5</td>
+    </tr>
+    <tr class="tile-row">
+      <td class=legend>4</td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class=legend>4</td>
+    </tr>
+    <tr class="tile-row">
+      <td class=legend>3</td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class="tile"></td>
+      <td class=legend>3</td>
+    </tr>
+    <tr class="tile-row">
+      <td class=legend>2</td>
+      <td class="tile">&#9817;</td>
+      <td class="tile">&#9817;</td>
+      <td class="tile">&#9817;</td>
+      <td class="tile">&#9817;</td>
+      <td class="tile">&#9817;</td>
+      <td class="tile">&#9817;</td>
+      <td class="tile">&#9817;</td>
+      <td class="tile">&#9817;</td>
+      <td class=legend>2</td>
+    </tr>
+    <tr class="tile-row">
+      <td class=legend>1</td>
+      <td class="tile">&#9814;</td>
+      <td class="tile">&#9816;</td>
+      <td class="tile">&#9815;</td>
+      <td class="tile">&#9813;</td>
+      <td class="tile">&#9812;</td>
+      <td class="tile">&#9815;</td>
+      <td class="tile">&#9816;</td>
+      <td class="tile">&#9814;</td>
+      <td class=legend>1</td>
+    </tr>
+    <tr class="legend-row">
+      <td class=legend></td>
+      <td class=legend>a</td>
+      <td class=legend>b</td>
+      <td class=legend>c</td>
+      <td class=legend>d</td>
+      <td class=legend>e</td>
+      <td class=legend>f</td>
+      <td class=legend>g</td>
+      <td class=legend>h</td>
+      <td class=legend></td>
+    </tr>
+  </table>
+</body>
+
+</html>
